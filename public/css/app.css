@@ -1,0 +1,509 @@
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.header {
+    padding: 20px 10px;
+    align-items: center;
+}
+
+.logo img {
+    width: 170px;
+}
+
+.nav-link {
+    color: #000;
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+.header .nav-link:hover {
+    color: #9c1515;
+}
+
+.header .nav .active {
+    font-weight: 500;
+    color: #9c1515;
+}
+
+.dropdownnav {
+    display: none;
+    text-align: right;
+}
+
+.dropdownnav i {
+    font-size: 20px;
+}
+
+.dropdown-menu {
+    inset: 18px 0px auto auto !important;
+    width: 93%;
+    border-radius: 2%;
+    text-align: center;
+}
+
+.dropdown-menu .active {
+    color: #9c1515;
+    background-color: #fff;
+}
+
+.dropdown-item:hover {
+    background-color: transparent;
+}
+.titleimage img{
+    height: 80%;
+    width: 100%;
+}
+
+.onas {
+    margin: 50px auto;
+}
+
+.onas h1{
+    text-align: center;
+}
+
+.onas p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    text-align: justify;
+}
+
+.footer {
+    background-color: #1c1c1c;
+    padding: 20px 0px;
+    text-align: center;
+}
+
+.footer .socials {
+    margin-top: 10px;
+}
+
+.footer .socials a {
+    font-size: 30px;
+    color: #ffffff;
+    transition: color .15s ease-in-out;
+    margin: 0 15px;
+}
+
+.footer .socials a:hover {
+    color: #9c1515;
+}
+
+.footer .nav {
+    margin: 10px 0;
+}
+
+.footer .nav-item a {
+    font-size: 16px;
+    color: #808080;
+    text-transform: uppercase;
+}
+
+.footer .nav-item a:hover {
+    color: #9c1515;
+}
+
+.footer .copyright {
+    font-size: 12px;
+    color: #808080;
+    margin: 0;
+}
+
+.mealmenu {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.mealmenu h1{
+    margin-bottom: 20px;
+}
+
+.meal {
+    height: 200px;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid #9c1515;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: left;
+}
+
+.meal:last-child {
+    margin-bottom: 0;
+}
+
+.meal img {
+    border: none;
+    z-index: -1;
+    height: 100%;
+    width: 16%;
+}
+
+.meal .description {
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 64%;
+}
+
+.meal .description p {
+    margin: 0;
+}
+
+.meal .description h3 {
+    font-weight: bold;
+}
+
+.meal .price {
+    text-align: center;
+    font-size: 35px;
+    width: 13%;
+    margin: 0;
+}
+
+.meal .buttons {
+    width: 7%;
+    text-align: end;
+}
+
+.meal .buttons button {
+    font-size: 20px;
+}
+
+.meal .btnEditMeal {
+    padding: 0;
+    padding-right: 10px;
+    color: #39af30;
+}
+
+.meal form {
+    display: inline-block;
+}
+
+.meal .btnDeleteMeal {
+    padding: 0;
+    color: #9c1515;
+}
+
+.btnAddMeal {
+    margin-top: 10px;
+}
+
+.addmeal {
+    font-size: 50px;
+    color: #2e9c15;
+}
+
+.contact h1 {
+    text-align: center;
+    margin: 20px 0;
+    margin-bottom: 50px;
+}
+
+.contactform, .contacts {
+    width: 49% ;
+    display: inline-block;
+}
+
+.contacts {
+    text-align: center;
+}
+
+.contact-item {
+    margin-bottom: 25px;
+}
+
+.contactform .form-group {
+    margin-bottom: 20px;
+}
+
+.contacts p {
+    margin: 0;
+}
+
+.contacts i {
+    font-size: 30px;
+    color: #9c1515;
+}
+
+.address p:first-child {
+    font-weight: bold;
+}
+
+.map {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.map iframe {
+    width: 100%;
+}
+
+.newMeal {
+    margin-bottom: 30px;
+}
+
+.newMeal h1{
+    text-align: center;
+}
+
+.newMeal form {
+    width: 80%;
+    margin: 0 auto;
+
+}
+
+.newMeal form button:last-child {
+    margin: 0 auto;
+}
+
+@media (max-width: 1400px) {
+    .titleimage img {
+        height: 80%;
+    }
+
+    .meal img {
+        width: 18%;
+    }
+
+    .meal .buttons {
+        width: 8%;
+    }
+
+    .meal .description {
+        width: 61%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .titleimage img {
+        height: 70%;
+    }
+
+    .meal {
+        height: auto;
+        text-overflow: ellipsis;
+    }
+
+    .meal img {
+        width: 16%;
+    }
+
+    .meal .description {
+        width: 61%;
+    }
+
+    .meal .description h3 {
+        font-size: 22px;
+    }
+
+    .meal .description p {
+        font-size: 14px;
+        overflow-wrap: normal;
+    }
+
+    .meal .price {
+        width: 14%;
+        font-size: 28px;
+    }
+
+    .meal .buttons {
+        width: 9%;
+    }
+
+    .meal .buttons button {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 992px) {
+    .titleimage img {
+        height: 50%;
+    }
+
+    .contacts {
+        width: 50%;
+    }
+
+    .map iframe {
+        height: 250px;
+    }
+
+    .meal .description {
+        width: 59%;
+    }
+
+    .meal .description h3 {
+        font-size: 18px;
+    }
+
+    .meal .description p {
+        font-size: 12px;
+    }
+
+    .meal .price {
+        font-size: 20px;
+    }
+
+    .meal .buttons {
+        width: 11%;
+    }
+
+    .meal .buttons button {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 786px) {
+    .titleimage img {
+        height: 40%;
+    }
+
+    .nav-link {
+        font-size: 16px;
+    }
+
+    .mealmenu h1 {
+        font-size: 26px;
+    }
+
+    .onas h1 {
+        font-size: 28px;
+    }
+
+    .onas {
+        margin: 25px auto;
+    }
+
+    .onas p {
+        font-size: 14px;
+    }
+
+    .dropdownnav {
+        display: block;
+    }
+
+    .header .nav {
+        display: none;
+    }
+
+    .meal img {
+        width: 19%;
+    }
+
+    .meal .description {
+        width: 50%;
+        text-align: justify;
+    }
+
+    .meal .description h3 {
+        font-size: 16px;
+    }
+
+    .meal .description p {
+        font-size: 10px;
+    }
+
+    .meal .price {
+        font-size: 16px;
+        width: 17%;
+    }
+
+    .meal .buttons {
+        width: 14%;
+    }
+
+    .contact .row {
+        flex-direction: column;
+    }
+
+    .contactform {
+        width: 100%;
+    }
+
+    .contacts {
+        width: 100%;
+    }
+
+    .addmeal  {
+        font-size: 30px;
+    }
+
+    .footer .nav-item a {
+        font-size: 12px;
+    }
+
+    .socials i{
+        font-size: 22px;
+    }
+
+    .contactform, .contacts {
+        display: block;
+    }
+}
+
+@media (max-width: 576px) {
+    .header {
+        padding: 10px 10px;
+    }
+
+    .titleimage img {
+        height: 30%;
+    }
+
+    .onas {
+        margin: 10px auto;
+    }
+
+    .onas h1 {
+        font-size: 22px;
+    }
+
+    .onas p {
+        font-size: 12px;
+    }
+
+    .logo img {
+        width: 120px;
+    }
+
+    .dropdownnav i {
+        font-size: 16px;
+    }
+
+    .mealmenu h1 {
+        font-size: 22px;
+    }
+
+    .meal {
+        border: none;
+        margin-bottom: 0;
+        border-bottom: 1px solid #9c1515;
+        border-radius: 0;
+    }
+
+    .meal img {
+        width: 25%;
+    }
+
+    .meal .description {
+        width: 58%;
+    }
+
+    .meal .price {
+        font-size: 16px;
+        width: 17%;
+    }
+
+    .meal .buttons{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .meal .btnEditMeal {
+        padding: 0;
+    }
+}
+
