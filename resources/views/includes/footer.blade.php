@@ -1,6 +1,6 @@
 <div class="container-fluid footer">
     <div class="logo">
-        <a href="index.php">
+        <a href="{{ route("homepage") }}">
             <img src="{{ asset('images/logoWhite.png') }}" alt="">
         </a>
     </div>

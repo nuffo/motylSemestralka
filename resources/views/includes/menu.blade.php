@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row justify-content-between header">
         <div class="col logo">
-            <a href="index.php">
+            <a href="{{ route("homepage") }}">
                 {{--<h1>MOTYLPUB</h1>
                 <h2>RESTAURANT</h2>--}}
                 <img src="{{ asset('images/logoBlack.png') }}" alt="">
