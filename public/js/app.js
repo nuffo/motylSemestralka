@@ -2054,6 +2054,72 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./resources/js/addMealClientValidation.js":
+/*!*************************************************!*\
+  !*** ./resources/js/addMealClientValidation.js ***!
+  \*************************************************/
+/***/ (() => {
+
+var name = document.getElementById('addNameInput');
+var price = document.getElementById('addPriceInput');
+var description = document.getElementById('addDescriptionInput');
+var imagePath = document.getElementById('addImageInput');
+
+window.checkAddInputs = function () {
+  var isValid = false;
+  var validCount = 0;
+
+  if (name.value === '') {
+    setError(name, '* povinné pole');
+  } else {
+    setSuccess(name);
+    validCount++;
+  }
+
+  if (price.value === '') {
+    setError(price, '* povinné pole');
+  } else {
+    setSuccess(price);
+    validCount++;
+  }
+
+  if (description.value === '') {
+    setError(description, '* povinné pole');
+  } else {
+    setSuccess(description);
+    validCount++;
+  }
+
+  if (imagePath.files.length === 0) {
+    setError(imagePath, '* povinné pole');
+  } else {
+    setSuccess(imagePath);
+    validCount++;
+  }
+
+  if (validCount === 4) {
+    isValid = true;
+  }
+
+  return isValid;
+};
+
+function setError(input, message) {
+  var parent = input.parentElement;
+  var small = parent.querySelector('small');
+  small.innerText = message;
+  parent.className = 'error';
+}
+
+function setSuccess(input) {
+  var parent = input.parentElement;
+  var small = parent.querySelector('small');
+  small.innerText = '';
+  parent.className = 'success';
+}
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -2062,32 +2128,9 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-var editButtons = document.querySelectorAll(".btnEditMeal");
-var editModalLabel = document.getElementById("modalLabel");
-var editForm = document.getElementById("editMealForm");
-var editInputName = document.getElementById("nameInput");
-var editInputPrice = document.getElementById("priceInput");
-var editInputDescription = document.getElementById("descriptionInput");
+__webpack_require__(/*! ./editModalInputValues */ "./resources/js/editModalInputValues.js");
 
-var _loop = function _loop(i) {
-  var button = editButtons[i];
-  button.addEventListener("click", function () {
-    changeModalValues(JSON.parse(button.dataset.meal), button.dataset.editUrl);
-  });
-};
-
-for (var i = 0; i < editButtons.length; i++) {
-  _loop(i);
-}
-
-function changeModalValues(meal, editUrl) {
-  console.log(editInputName);
-  editModalLabel.textContent = "Edit - " + meal.name;
-  editForm.action = editUrl;
-  editInputName.value = meal.name;
-  editInputPrice.value = meal.price;
-  editInputDescription.value = meal.description;
-}
+__webpack_require__(/*! ./addMealClientValidation */ "./resources/js/addMealClientValidation.js");
 
 /***/ }),
 
@@ -2117,6 +2160,41 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/editModalInputValues.js":
+/*!**********************************************!*\
+  !*** ./resources/js/editModalInputValues.js ***!
+  \**********************************************/
+/***/ (() => {
+
+var editButtons = document.querySelectorAll(".btnEditMeal");
+var editModalLabel = document.getElementById("modalLabel");
+var editForm = document.getElementById("editMealForm");
+var editInputName = document.getElementById("nameInput");
+var editInputPrice = document.getElementById("priceInput");
+var editInputDescription = document.getElementById("descriptionInput");
+
+var _loop = function _loop(i) {
+  var button = editButtons[i];
+  button.addEventListener("click", function () {
+    changeModalValues(JSON.parse(button.dataset.meal), button.dataset.editUrl);
+  });
+};
+
+for (var i = 0; i < editButtons.length; i++) {
+  _loop(i);
+}
+
+function changeModalValues(meal, editUrl) {
+  console.log(editInputName);
+  editModalLabel.textContent = "Edit - " + meal.name;
+  editForm.action = editUrl;
+  editInputName.value = meal.name;
+  editInputPrice.value = meal.price;
+  editInputDescription.value = meal.description;
+}
 
 /***/ }),
 

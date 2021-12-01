@@ -107,7 +107,7 @@ class MealController extends Controller
      */
     public function destroy(Meal $meal)
     {
-        unlink(public_path("images/".$meal->imagePath));
+        //unlink(public_path("images/".$meal->imagePath));
         $meal->delete();
         return redirect(route("menu.index"));
     }

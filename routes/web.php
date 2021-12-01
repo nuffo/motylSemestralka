@@ -14,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', "home")->name("homepage");
-//Route::get('/menu', [\App\Http\Controllers\MealController::class, "index"])->name("menupage");
 Route::view('/contact', "contact")->name("contactpage");
 Route::resource("/menu", \App\Http\Controllers\MealController::class)->except(['create', 'show', 'edit'])->parameters(['menu' => 'meal']);

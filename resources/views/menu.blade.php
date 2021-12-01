@@ -21,23 +21,27 @@
             </div>
             <div class="modal-body">
                 <div class="container newMeal">
-                    <form method="post" action="{{ route("menu.store") }}" enctype="multipart/form-data" id="newMealForm">
+                    <form method="post" action="{{ route("menu.store") }}" enctype="multipart/form-data" id="newMealForm" onsubmit="return checkAddInputs();">
                         @csrf
-                        <div class="mb-3">
+                        <div class="">
                             <label for="addNameInput" class="form-label">Názov</label>
                             <input type="text" class="form-control" id="addNameInput" name="name">
+                            <small></small>
                         </div>
-                        <div class="mb-3">
+                        <div class="">
                             <label for="addPriceInput" class="form-label">Cena</label>
                             <input type="number" step="0.01" class="form-control" id="addPriceInput" name="price">
+                            <small></small>
                         </div>
-                        <div class="mb-3">
+                        <div class="">
                             <label for="addDescriptionInput" class="form-label">Popis</label>
                             <input type="text" class="form-control" id="addDescriptionInput" name="description">
+                            <small></small>
                         </div>
-                        <div class="mb-3">
+                        <div class="">
                             <label for="addImageInput" class="form-label">Obrázok</label>
                             <input type="file" class="form-control" id="addImageInput" name="image">
+                            <small></small>
                         </div>
                         {{--<button type="submit" class="btn btn-primary" name="submit">Submit</button>--}}
                     </form>
@@ -60,20 +64,23 @@
             </div>
             <div class="modal-body">
                 <div class="container newMeal">
-                    <form method="post" action="" enctype="multipart/form-data" id="editMealForm">
+                    <form method="post" action="" enctype="multipart/form-data" id="editMealForm" onsubmit="return checkEditInputs();">
                         @csrf
                         @method("put")
                         <div class="mb-3">
                             <label for="nameInput" class="form-label">Názov</label>
                             <input type="text" class="form-control" id="nameInput" name="name">
+                            <small></small>
                         </div>
                         <div class="mb-3">
                             <label for="priceInput" class="form-label">Cena</label>
                             <input type="number" step="0.01" class="form-control" id="priceInput" name="price">
+                            <small></small>
                         </div>
                         <div class="mb-3">
                             <label for="descriptionInput" class="form-label">Popis</label>
                             <input type="text" class="form-control" id="descriptionInput" name="description">
+                            <small></small>
                         </div>
                         {{--<button type="submit" class="btn btn-primary" name="submit">Submit</button>--}}
                     </form>

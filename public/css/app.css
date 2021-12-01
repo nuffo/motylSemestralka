@@ -254,6 +254,30 @@ a {
 
 }
 
+.newMeal .form-control input {
+    display: block;
+}
+
+.newMeal .form-control:focus {
+    box-shadow: none;
+}
+
+.newMeal .success input{
+    border-color: #2ecc71;
+}
+
+.newMeal .success small{
+    color: #2ecc71;
+}
+
+.newMeal .error input{
+    border-color: #e74c3c;
+}
+
+.newMeal .error small{
+    color: #e74c3c;
+}
+
 .newMeal form button:last-child {
     margin: 0 auto;
 }
