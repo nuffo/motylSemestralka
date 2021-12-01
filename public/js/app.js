@@ -2132,6 +2132,8 @@ __webpack_require__(/*! ./editModalInputValues */ "./resources/js/editModalInput
 
 __webpack_require__(/*! ./addMealClientValidation */ "./resources/js/addMealClientValidation.js");
 
+__webpack_require__(/*! ./editMealClientValidation */ "./resources/js/editMealClientValidation.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -2160,6 +2162,65 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/editMealClientValidation.js":
+/*!**************************************************!*\
+  !*** ./resources/js/editMealClientValidation.js ***!
+  \**************************************************/
+/***/ (() => {
+
+var editName = document.getElementById('nameInput');
+var editPrice = document.getElementById('priceInput');
+var editDescription = document.getElementById('descriptionInput');
+
+window.checkEditInputs = function () {
+  var isValid = false;
+  var validCount = 0;
+
+  if (editName.value === '') {
+    setError(editName, '* povinné pole');
+  } else {
+    setSuccess(editName);
+    validCount++;
+  }
+
+  if (editPrice.value === '') {
+    setError(editPrice, '* povinné pole');
+  } else {
+    setSuccess(editPrice);
+    validCount++;
+  }
+
+  if (editDescription.value === '') {
+    setError(editDescription, '* povinné pole');
+  } else {
+    setSuccess(editDescription);
+    validCount++;
+  }
+
+  if (validCount === 3) {
+    isValid = true;
+  }
+
+  console.log(editName);
+  return isValid;
+};
+
+function setError(input, message) {
+  var parent = input.parentElement;
+  var small = parent.querySelector('small');
+  small.innerText = message;
+  parent.className = 'error';
+}
+
+function setSuccess(input) {
+  var parent = input.parentElement;
+  var small = parent.querySelector('small');
+  small.innerText = '';
+  parent.className = 'success';
+}
 
 /***/ }),
 

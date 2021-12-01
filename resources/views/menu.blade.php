@@ -67,17 +67,17 @@
                     <form method="post" action="" enctype="multipart/form-data" id="editMealForm" onsubmit="return checkEditInputs();">
                         @csrf
                         @method("put")
-                        <div class="mb-3">
+                        <div class="">
                             <label for="nameInput" class="form-label">Názov</label>
                             <input type="text" class="form-control" id="nameInput" name="name">
                             <small></small>
                         </div>
-                        <div class="mb-3">
+                        <div class="">
                             <label for="priceInput" class="form-label">Cena</label>
                             <input type="number" step="0.01" class="form-control" id="priceInput" name="price">
                             <small></small>
                         </div>
-                        <div class="mb-3">
+                        <div class="">
                             <label for="descriptionInput" class="form-label">Popis</label>
                             <input type="text" class="form-control" id="descriptionInput" name="description">
                             <small></small>

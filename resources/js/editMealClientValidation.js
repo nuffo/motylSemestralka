@@ -31,5 +31,21 @@ window.checkEditInputs = function () {
         isValid = true;
     }
 
+    console.log(editName);
     return isValid;
+}
+
+function setError(input, message) {
+    const parent = input.parentElement;
+    const small = parent.querySelector('small');
+
+    small.innerText = message;
+    parent.className = 'error';
+}
+
+function setSuccess(input) {
+    const parent = input.parentElement;
+    const small = parent.querySelector('small');
+    small.innerText = '';
+    parent.className = 'success';
 }
