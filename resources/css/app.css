@@ -1,3 +1,13 @@
+body { 
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+
 a {
     text-decoration: none;
     color: #000;
@@ -15,7 +25,7 @@ a {
 .nav-link {
     color: #000;
     font-weight: lighter;
-    font-size: 20px;
+    font-size: 19px;
 }
 
 .header .nav-link:hover {
@@ -162,6 +172,16 @@ a {
     margin: 0;
 }
 
+.meal .addToOrder {
+    width: 7%;
+    text-align: center;
+}
+
+.meal .addToOrder i {
+    font-size: 24px;
+    color:#159c3e;
+}
+
 .meal .buttons {
     width: 7%;
     text-align: end;
@@ -282,6 +302,80 @@ a {
     margin: 0 auto;
 }
 
+.loginform {
+    margin: 0;
+    padding: 3em;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 35%;
+    background-color: #f5f5f5;
+    border-radius: 0.5em;
+}
+
+.loginform .form-check {
+    font-size: 14px;
+}
+
+.loginform .register {
+    gap: 5px;
+}
+
+.noOrder a {
+    color: #9c1515;
+    font-weight: bold;
+} 
+
+.orderTable h4{
+    color: #9c1515;
+    font-size: 20px;
+}
+
+.orderItem:first-child {
+    border-top: 2px solid #9c1515;
+}
+
+.orderItem:nth-child(even) {
+    background-color: #dfb9b9ad;
+}
+
+.orderPrice span{
+    color: #9c1515;
+}
+
+.orderItemCount .btn {
+    padding: 0;
+}
+
+.orderItemCount .minusBtn, .destroyOrderBtn {
+    color: #9c1515;
+}
+
+.orderItemCount .plusBtn {
+    color: #2ecc71;
+}
+
+.orderItemCount span {
+    margin: 0 10px;
+}
+
+.order {
+    border-bottom: 1px solid #9c1515;
+}
+
+.order:first-child {
+    border-top: 1px solid #9c1515;
+}
+
+.order .meals {
+    width: 40%;
+}
+
+.order .orderPrice {
+    font-weight: bold;
+}
+
 @media (max-width: 1400px) {
     .titleimage img {
         height: 80%;
@@ -346,6 +440,14 @@ a {
         height: 50%;
     }
 
+    .dropdownnav {
+        display: block;
+    }
+
+    .header .nav {
+        display: none;
+    }
+
     .contacts {
         width: 50%;
     }
@@ -377,6 +479,10 @@ a {
     .meal .buttons button {
         font-size: 15px;
     }
+
+    .loginform {
+        width: 50%;
+    }
 }
 
 @media (max-width: 786px) {
@@ -402,14 +508,6 @@ a {
 
     .onas p {
         font-size: 14px;
-    }
-
-    .dropdownnav {
-        display: block;
-    }
-
-    .header .nav {
-        display: none;
     }
 
     .meal img {
@@ -528,5 +626,9 @@ a {
 
     .meal .btnEditMeal {
         padding: 0;
+    }
+    
+    .loginform {
+        width: 80%;
     }
 }

@@ -2,14 +2,24 @@
 @section("pagecontent")
 <div class="container mealmenu">
     <h1>- Menu -</h1>
+    @if(session('success'))
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <i class="fa fa-check-circle"></i> {{ session('success') }}
+    </div>
+    @endif
     @foreach($meals as $meal)
         @include("items.mealItem", compact("meal"))
     @endforeach
     {{--<a href="{{ route("menu.create") }}"><i class="fas fa-plus-circle addmeal"></i></a>--}}
     <!-- Button trigger modal -->
+    @if(Auth::check())
+    @if(Auth::user()->role === 'admin')
     <button type="button" class="btn btnAddMeal" data-bs-toggle="modal" data-bs-target="#addNewMealModal">
         <i class="fas fa-plus-circle addmeal"></i>
     </button>
+    @endif
+    @endif
 </div>
 <!-- Modal -->
 <div class="modal fade" id="addNewMealModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Meal;
+use App\Http\Requests\StoreMealRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -34,21 +35,15 @@ class MealController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreMealRequest $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|max:100',
-            'description' => 'required|max:255',
-            'price' => 'required|numeric',
-            'image' => 'required|mimes:jpg,png,jpeg',
-        ]);
-
+        $validated = $request->validated();
         $image = $request->file('image');
         $image->store('menu');
         Meal::create([
-            "name" => $validated["name"],
-            "description" => $validated["description"],
-            "price" => $validated["price"],
+            "name" => $validated['name'],
+            "description" => $validated['description'],
+            "price" => $validated['price'],
             "imagePath" => "menu/".$image->getClientOriginalName()
         ]);
         return redirect(route("menu.index"));
