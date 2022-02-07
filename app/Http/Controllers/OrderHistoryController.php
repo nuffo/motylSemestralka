@@ -9,7 +9,6 @@ use App\Models\OrderItem;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class OrderHistoryController extends Controller
 {

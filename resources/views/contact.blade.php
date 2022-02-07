@@ -3,14 +3,27 @@
 <div class="container contact">
     <h1>- Kontakt -</h1>
     <div class="contactpage">
-        <form class="contactform">
+        @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+        <form method="post" action="{{ route('question.store') }}" class="contactform">
+            @csrf
             <div class="form-group">
                 <label for="exampleInputEmail1">Emailová adresa</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1" placeholder="Enter email">
+                @error('email')
+                <small class="text-danger">{{ $message }}</small>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Čo vás zaujíma?</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control @error('question') is-invalid @enderror" name="question" id="exampleFormControlTextarea1" rows="3"></textarea>
+                @error('question')
+                <small class="text-danger">{{ $message }}</small>
+                @enderror
             </div>
             <button type="submit" class="btn btn-success">Odoslať</button>
         </form>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Meal;
 use App\Http\Requests\StoreMealRequest;
+use App\Http\Requests\UpdateMealRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,16 +18,6 @@ class MealController extends Controller
     public function index()
     {
         return view("menu", ["meals" => Meal::all()]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -50,41 +41,15 @@ class MealController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Meal  $meal
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Meal $meal)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Meal  $meal
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Meal $meal)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Meal  $meal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Meal $meal)
+    public function update(UpdateMealRequest $request, Meal $meal)
     {
-        $validated = $request->validate([
-            'name' => 'required|max:100',
-            'description' => 'required|max:255',
-            'price' => 'required|numeric'
-        ]);
+        $validated = $request->validated();
 
         $meal->update([
             "name" => $validated["name"],
@@ -104,11 +69,6 @@ class MealController extends Controller
     {
         //unlink(public_path("images/".$meal->imagePath));
         $meal->delete();
-        return redirect(route("menu.index"));
-    }
-
-    public function delete($id)
-    {
-        ddd($id);
+        return response()->json(['status' => 'success']);
     }
 }

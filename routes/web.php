@@ -13,10 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', "home")->name("homepage");
+Route::resource('/', \App\Http\Controllers\HomeController::class);
 Route::view('/contact', "contact")->name("contactpage");
 Route::resource("/menu", \App\Http\Controllers\MealController::class)->except(['create', 'show', 'edit'])->parameters(['menu' => 'meal']);
 Route::resource('/order', \App\Http\Controllers\OrderController::class);
 Route::resource('/order-history', \App\Http\Controllers\OrderHistoryController::class);
+Route::resource('/question', \App\Http\Controllers\QuestionController::class);
+Route::resource('/review', \App\Http\Controllers\ReviewController::class);
 
 require __DIR__.'/auth.php';

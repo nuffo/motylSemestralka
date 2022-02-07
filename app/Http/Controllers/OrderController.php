@@ -44,7 +44,7 @@ class OrderController extends Controller
     public function store(StoreOrderRequest $request)
     {
         $data = $request->validated();
-        $order = $request->session()->get('order');
+        //$order = $request->session()->get('order');
 
         $orderItemsRetriever = new OrderItemsRetriever();
         $orderItemsContainers = $orderItemsRetriever->retrieve();
@@ -106,7 +106,12 @@ class OrderController extends Controller
         $orderContainer = OrderContainer::build($orderItemsContainers);
         $request->session()->put('order', $orderContainer->orderItemsToArray());
 
-        return redirect()->route('order.index');
+        return response()->json([
+            'status' => 'success', 
+            'count' => $orderItemsContainers[$meal->id]->getCount(), 
+            'totalPrice' => $orderItemsContainers[$meal->id]->getTotalPrice(),
+            'orderPrice' => $orderContainer->getOrderPrice()
+        ]);
     }
 
     /**
@@ -125,6 +130,6 @@ class OrderController extends Controller
         $orderContainer = OrderContainer::build($orderItemsContainers);
         session()->put('order', $orderContainer->orderItemsToArray());
 
-        return redirect()->route('order.index');
+        return response()->json(['status' => 'success', 'orderPrice' => $orderContainer->getOrderPrice()]);
     }
 }

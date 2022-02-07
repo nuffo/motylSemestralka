@@ -340,7 +340,7 @@ a {
     background-color: #dfb9b9ad;
 }
 
-.orderPrice span{
+.orderPrice span:first-child{
     color: #9c1515;
 }
 
@@ -373,6 +373,34 @@ a {
 }
 
 .order .orderPrice {
+    font-weight: bold;
+}
+
+.question {
+    border: 1px solid #9c1515;
+    border-radius: 0.5em;
+    text-align: left;
+    padding: 1em;
+    margin-bottom: 2em;
+}
+
+.question .email {
+    font-weight: bold;
+}
+
+.question .btnConfirmQuestion i{
+    color: #2ecc71;
+}
+
+.review {
+    border: 1px solid #9c1515;
+    border-radius: 0.5em;
+    text-align: left;
+    padding: 1em;
+    margin-bottom: 2em;
+}
+
+.review .username {
     font-weight: bold;
 }
 

@@ -11,12 +11,15 @@
             <button type="button" data-meal="{{ $meal->toJson() }}" data-edit-url="{{ route('menu.update', $meal->id) }}" class="btn btnEditMeal" data-bs-toggle="modal" data-bs-target="#editMealModal">
                 <i class="far fa-edit edit"></i>
             </button>
-            {{--<a href="{{ route('menu.update', $meal->id) }}"><i class="far fa-edit edit"></i></a>--}}
-            <form action="{{ route('menu.destroy', $meal->id) }}" method="post">
+            <script type="text/javascript">
+
+            </script>
+            {{-- <form method="post" class="deleteMealForm">
                 @csrf
                 @method("delete")
                 <button class="btn btnDeleteMeal" type="submit"><i class="far fa-trash-alt delete"></i></button>
-            </form>
+            </form> --}}
+            <button class="btn btnDeleteMeal" data-url="{{ route('menu.destroy', $meal->id) }}" type="button"><i class="far fa-trash-alt delete"></i></button>
         </div>
     @else
     <div class="addToOrder">

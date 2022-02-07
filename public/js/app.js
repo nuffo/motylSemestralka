@@ -2134,6 +2134,12 @@ __webpack_require__(/*! ./addMealClientValidation */ "./resources/js/addMealClie
 
 __webpack_require__(/*! ./editMealClientValidation */ "./resources/js/editMealClientValidation.js");
 
+__webpack_require__(/*! ./deleteMeal */ "./resources/js/deleteMeal.js");
+
+__webpack_require__(/*! ./changeMealCount */ "./resources/js/changeMealCount.js");
+
+__webpack_require__(/*! ./deleteOrderItem */ "./resources/js/deleteOrderItem.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -2162,6 +2168,112 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/changeMealCount.js":
+/*!*****************************************!*\
+  !*** ./resources/js/changeMealCount.js ***!
+  \*****************************************/
+/***/ (() => {
+
+var button = document.querySelectorAll('.plusBtn, .minusBtn');
+
+if (button) {
+  var _loop = function _loop(i) {
+    var incBtn = button[i];
+    var url = incBtn.dataset.url;
+    var operation = incBtn.dataset.operation;
+    incBtn.addEventListener('click', function () {
+      changeCount(url, operation, incBtn);
+    });
+  };
+
+  for (var i = 0; i < button.length; i++) {
+    _loop(i);
+  }
+}
+
+function changeCount(url, operation, button) {
+  window.axios.put(url, {
+    operation: operation
+  }).then(function (res) {
+    console.log(res);
+    button.closest('.orderItemCount').querySelector('.mealCount').textContent = res.data.count + 'x';
+    var parent = button.closest('.orderItem');
+    parent.querySelector('.totalPrice').textContent = Math.round(res.data.totalPrice * 100) / 100;
+    document.getElementById('order-price').querySelector('.number').textContent = Math.round(res.data.orderPrice * 100) / 100;
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/deleteMeal.js":
+/*!************************************!*\
+  !*** ./resources/js/deleteMeal.js ***!
+  \************************************/
+/***/ (() => {
+
+var button = document.querySelectorAll('.btnDeleteMeal');
+
+if (button) {
+  var _loop = function _loop(i) {
+    var deleteBtn = button[i];
+    var deleteUrl = deleteBtn.dataset.url;
+    deleteBtn.addEventListener('click', function () {
+      deleteMeal(deleteUrl, deleteBtn);
+    });
+  };
+
+  for (var i = 0; i < button.length; i++) {
+    _loop(i);
+  }
+}
+
+function deleteMeal(url, button) {
+  window.axios["delete"](url).then(function (res) {
+    console.log(res);
+
+    if (res.data.status === 'success') {
+      button.closest('.meal').remove();
+    }
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/deleteOrderItem.js":
+/*!*****************************************!*\
+  !*** ./resources/js/deleteOrderItem.js ***!
+  \*****************************************/
+/***/ (() => {
+
+var button = document.querySelectorAll('.destroyOrderBtn');
+
+if (button) {
+  var _loop = function _loop(i) {
+    var btn = button[i];
+    var url = btn.dataset.url;
+    btn.addEventListener('click', function () {
+      deleteOrderItem(url, btn);
+    });
+  };
+
+  for (var i = 0; i < button.length; i++) {
+    _loop(i);
+  }
+}
+
+function deleteOrderItem(url, button) {
+  window.axios["delete"](url).then(function (res) {
+    console.log(res);
+
+    if (res.data.status === 'success') {
+      button.closest('.orderItem').remove();
+      document.getElementById('order-price').querySelector('.number').textContent = Math.round(res.data.orderPrice * 100) / 100;
+    }
+  });
+}
 
 /***/ }),
 

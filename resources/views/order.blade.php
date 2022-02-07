@@ -24,7 +24,7 @@
             @include("items.orderItem", compact("orderItem"))
             @endforeach
         </div>
-        <h4 class="mt-4 orderPrice mb-4"><span>Celková cena objednávky: </span>{{ number_format($orderPrice, 2, ',','') }} €</h4>
+        <h4 id="order-price" class="mt-4 orderPrice mb-4"><span>Celková cena objednávky: </span><span class="number">{{ number_format($orderPrice, 2, ',','') }}</span> €</h4>
         <form method="post" action="{{ route('order-history.store') }}">
             @csrf
             <button type="submit" class="btn btn-success">Objednať</button>

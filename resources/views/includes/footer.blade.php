@@ -1,6 +1,6 @@
 <div class="container-fluid footer">
     <div class="logo">
-        <a href="{{ route("homepage") }}">
+        <a href="{{ route("index") }}">
             <img src="{{ asset('images/logoWhite.png') }}" alt="">
         </a>
     </div>
@@ -12,7 +12,7 @@
         </div>
         <ul class="nav justify-content-center">
             <li class="nav-item">
-                <a class="nav-link {{ Request::routeIs("homepage") ? "active" : ""}}" aria-current="page" href="{{ route("homepage") }}">Domov</a>
+                <a class="nav-link {{ Request::routeIs("index") ? "active" : ""}}" aria-current="page" href="{{ route("index") }}">Domov</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Request::routeIs("menu.index") ? "active" : ""}}" href="{{ route("menu.index") }}">Menu</a>
