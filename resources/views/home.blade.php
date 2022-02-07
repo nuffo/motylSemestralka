@@ -22,7 +22,7 @@
         <form method="post" action="{{ route('review.store') }}" class="reviewForm">
             @csrf
             <div class="form-group">
-                <label for="">Zvoľte počet hviezdičiek.</label><br>
+                <label>Zvoľte počet hviezdičiek.</label><br>
                 <input type="radio" id="one" name="stars" value="1">
                 <label for="one">1</label>
                 <input type="radio" id="two" name="stars" value="2">
